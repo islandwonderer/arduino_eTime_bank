@@ -33,7 +33,7 @@ void displayTime(int curr_time){
 // Adds eTime by acumulating time according to the multiplier
 void addTime(int multiplier) {
   unsigned long start_time = millis();
-  while(digitalRead(button_9)==LOW){
+  while(digitalRead(button_9) != HIGH){
   }
   unsigned long end_time = millis();
   unsigned long earned_time = (end_time - start_time)/min_interval;
@@ -66,51 +66,6 @@ void addTime(int multiplier) {
   displayOptions();
   return;
  }
-
-// Checks for TTP229 keypad input
-int checkKeyPadInput(){
-  CTtp229ButtonEvent buttonEvent = TTP16Button.GetButtonEvent();
-  if( buttonEvent.ButtonNumber != 0){
-    return buttonEvent.ButtonNumber;
-  }
-  else{
-    return 3003;
-  }
-}
-
-//Checks for button input
-int checkButtonInput() {
-  if(digitalRead(button_1)==HIGH){
-    return 1;
-  }
-  else if(digitalRead(button_2)==HIGH){
-    return 2;
-  }
-  else if(digitalRead(button_3)==HIGH){
-    return 3;
-  }
-  else if(digitalRead(button_4)==HIGH){
-    return 4;
-  }
-  else if(digitalRead(button_5)==HIGH){
-    return 5;
-  }
-  else if(digitalRead(button_6)==HIGH){
-    return 6;
-  }
-  else if(digitalRead(button_7)==HIGH){
-    return 7;
-  }
-  else if(digitalRead(button_8)==HIGH){
-    return 8;
-  }
-  else if(digitalRead(button_9)==HIGH){
-    return 9;
-  }
-  else{
-    return 3003;
-  }
-}
 
 void displayMessage(int cursor_1a, int cursor_1b, String message){
     lcd.clear();

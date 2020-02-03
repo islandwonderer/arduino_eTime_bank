@@ -1,36 +1,33 @@
 void loop() {
-  int key_pad_input = checkKeyPadInput();
-  int button_input = checkButtonInput();
-  
-  if(key_pad_input == 1 || button_input == 1){
+  if(digitalRead(button_1) == HIGH){
     displayMessage(4, 1, "Reading: x1");
     addTime(read_multiplier);
   }
-  else if(key_pad_input == 2 || button_input == 2){
+  else if(digitalRead(button_2) == HIGH){
     displayMessage(5, 1, "Coding: x2");
     addTime(code_multiplier);
   }
-  else if(key_pad_input == 3 || button_input == 3){
+  else if(digitalRead(button_3) == HIGH){
     displayMessage(3, 1, "Yard Work: x3");
     addTime(yard_multiplier);
   }
-  else if(key_pad_input == 4 || button_input == 4){
+  else if(digitalRead(button_4) == HIGH){
     displayMessage(4, 1, "Cooking: x1");
     addTime(cook_multiplier);
   }
-  else if(key_pad_input == 5 || button_input == 5){
+  else if(digitalRead(button_5) == HIGH){
     displayMessage(4, 1, "Mathing: x3");
     addTime(math_multiplier);
   }
-  else if(key_pad_input == 6 || button_input == 6){
+  else if(digitalRead(button_6) == HIGH){
     displayMessage(4, 1, "Cleaning: x3");
     addTime(clean_multiplier);
   }
-  else if(key_pad_input == 7 || button_input == 7){
+  else if(digitalRead(button_7) == HIGH){
     displayMessage(5, 1, "Other: x1");
     addTime(other_multiplier);
   }
-  else if(key_pad_input == 8 || button_input == 8){
+  else if(digitalRead(button_8) == HIGH){
     useTime();
   }
 }
