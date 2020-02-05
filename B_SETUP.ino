@@ -4,7 +4,7 @@ void setup() {
    
   // Initializes the buttons
   for(int i=0; i<array_list_size; ++i){
-    pinMode(button_list[i], INPUT);
+    pinMode(button_list[i], INPUT_PULLUP);
   }
 
   // Initializes the LCD Screen
