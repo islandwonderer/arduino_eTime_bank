@@ -82,7 +82,6 @@ bool debounceCheck(int pin){
    bool check_two;
    check_one = digitalRead(pin);
    while((millis()-last_check) < bounce_interval){
-    last_check = millis();
    }
    check_two = digitalRead(pin);
    if(check_one == true && check_two == true){
