@@ -21,6 +21,7 @@ void displayOptions() {
   return;
 }
 
+//Used with useTime() to display the time
 void displayTime(int curr_time){
   lcd.clear();
   lcd.setCursor(5,1);
@@ -68,9 +69,26 @@ void addTime(int multiplier) {
  }
 
 void displayMessage(int cursor_1a, int cursor_1b, String message){
-    lcd.clear();
-    lcd.setCursor(cursor_1a,cursor_1b);
-    lcd.print(message);
-    lcd.setCursor(0, 2);
-    lcd.print("press STOP when done"); 
+   lcd.clear();
+   lcd.setCursor(cursor_1a,cursor_1b);
+   lcd.print(message);
+   lcd.setCursor(0, 2);
+   lcd.print("press STOP when done"); 
  }
+
+bool debounceCheck(int pin){
+   unsigned long last_check = millis();
+   bool check_one;
+   bool check_two;
+   check_one = digitalRead(pin);
+   while((millis()-last_check) < bounce_interval){
+    last_check = millis();
+   }
+   check_two = digitalRead(pin);
+   if(check_one == true && check_two == true){
+    return true;
+   }
+   else{
+    return false;
+   }
+}

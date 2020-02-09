@@ -46,6 +46,7 @@ int button_list[array_list_size] = {button_1,button_2,button_3,
 
 // Time and Time Multipliers
 int avail_time = 0;
+const unsigned long bounce_interval = 50;
 const unsigned int min_interval = 60000;
 const int read_multiplier = 1;
 const int code_multiplier = 2;
